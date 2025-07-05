@@ -1,7 +1,8 @@
 import React from 'react';
+
 const Navbar = () => {
   return (
-    <nav>
+    <nav className="navbar">
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -11,4 +12,5 @@ const Navbar = () => {
     </nav>
   );
 };
+
 export default Navbar;

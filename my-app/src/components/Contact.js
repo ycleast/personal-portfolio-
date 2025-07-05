@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 const Contact = () => {
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`Thank you! I'll contact you at ${email}`);
+  };
+
   return (
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Feel free to reach out to me via email or phone, or through social media.</p>
-      <ul>
-        <li>Email: example@example.com</li>
-        <li>Phone: (123) 456-7890</li>
-      </ul>
+    <section id="contact" className="section">
+      <h2>Get in Touch</h2>
+      <form onSubmit={handleSubmit}>
+        <input 
+          type="email" 
+          placeholder="Your email" 
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required 
+        />
+        <button type="submit">Contact Me</button>
+      </form>
     </section>
   );
 };
+
 export default Contact;

@@ -1,16 +1,18 @@
 import React from 'react';
+
 const Skills = () => {
+  const skills = ["HTML", "CSS", "JavaScript", "React", "Git"];
+
   return (
-    <section id="skills">
-      <h2>Skills</h2>
-      <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>React</li>
-        {/* Add more skills */}
+    <section id="skills" className="section">
+      <h2>Technical Skills</h2>
+      <ul className="skills-list">
+        {skills.map((skill, index) => (
+          <li key={index}>{skill}</li>
+        ))}
       </ul>
     </section>
   );
 };
+
 export default Skills;
