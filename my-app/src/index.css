@@ -1,25 +1,49 @@
+/* ===== ENHANCED STYLES ===== */
+:root {
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --secondary: #f9fafb;
+  --text: #1f2937;
+  --light-text: #6b7280;
+}
+
 /* Global Styles */
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
+  color: var(--text);
+  background-color: #f9fafb;
 }
 
 .section {
   min-height: 100vh;
-  padding: 4rem 2rem;
+  padding: 6rem 2rem 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Navbar */
+.section:nth-child(even) {
+  background-color: white;
+}
+
+/* Improved Navbar */
 .navbar {
-  background: #333;
-  padding: 1rem;
-  position: fixed;
-  width: 100%;
-  top: 0;
+  background: white;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.navbar a {
+  color: var(--text);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: var(--primary);
 }
 
 .navbar ul {
@@ -33,9 +57,23 @@ body {
   margin: 0 1rem;
 }
 
-.navbar a {
-  color: white;
-  text-decoration: none;
+/* Section Headings */
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 2px;
 }
 
 /* Projects Grid */
@@ -45,10 +83,18 @@ body {
   gap: 2rem;
 }
 
+/* Project Cards */
 .project-card {
-  border: 1px solid #ddd;
-  padding: 1.5rem;
-  border-radius: 8px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Skills List */
@@ -67,14 +113,125 @@ body {
   list-style: none;
 }
 
-/* Responsive Design */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-  .navbar ul {
+  .about-content {
     flex-direction: column;
-    align-items: center;
+    text-align: center;
   }
-  
-  .projects-container {
-    grid-template-columns: 1fr;
+
+  h2 {
+    font-size: 2rem;
   }
+
+  .section {
+    padding: 5rem 1.5rem 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar li {
+    margin: 0 0.5rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1200px;
+}
+
+.profile-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.tech-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.tech-tags span {
+  background: #e0e7ff;
+  color: #4f46e5;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.project-links a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.skill-item {
+  margin-bottom: 1.5rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.skill-bar {
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  background: #4f46e5;
+  border-radius: 5px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+input,
+textarea {
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-family: inherit;
+}
+
+.alert {
+  padding: 1rem;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
+}
+
+.success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.error {
+  background: #fee2e2;
+  color: #b91c1c;
 }
